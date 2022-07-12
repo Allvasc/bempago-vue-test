@@ -24,7 +24,7 @@ export default {
   flex-direction: column;
 
 } body{
-  background-color: rgb(141, 14, 214);
+  background-color: #8d0ed6;
   padding: 10px;
   margin: 0;
 }

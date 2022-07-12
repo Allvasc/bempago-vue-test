@@ -1,16 +1,13 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+<FormPedido/>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue';
+import FormPedido from './components/FormPedido.vue';
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld,
-  },
+  components: { FormPedido },
 };
 </script>
 
@@ -21,6 +18,14 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+} body{
+  background-color: rgb(141, 14, 214);
+  padding: 10px;
+  margin: 0;
 }
 </style>

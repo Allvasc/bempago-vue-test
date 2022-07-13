@@ -9,12 +9,12 @@
          alt="imagem de um pacote de entregas" />
       </div>
     </header>
-    <form>
+    <form action="/sendform">
       <div class="container-checkbox">
           <span class="txBold">Selecione os seus adesivos</span><br />
         <div class="case-checkbox">
         <label for="react">
-          <input type="checkbox" id="react" name="react" value="React">
+          <input type="checkbox" id="react" name="react" value="React" checked>
           React
         </label>
         <label for="vue">

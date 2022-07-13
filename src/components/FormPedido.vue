@@ -12,27 +12,46 @@
     <form>
       <span class="txBold">Selecione os seus adesivos</span>
       <label for="react">
-        <input type="checkbox" id="react" value="React">
+        <input type="checkbox" id="react" name="react" value="React">
         React
       </label>
       <label for="vue">
-        <input type="checkbox" id="vue" value="Vue">
+        <input type="checkbox" id="vue" name="vue" value="Vue">
         Vue
       </label>
       <label for="angular">
-        <input type="checkbox" id="angular" value="Angular">
+        <input type="checkbox" id="angular" name="angular" value="Angular">
         Angular
       </label>
       <br>
       <div class="container-buttom">
-        <button class="buttonCount" type="button" v-on:click="decrement">-</button>
-        <input class="InputCount" type="number" name="number" id="Number" v-model="number">
+        <button id="btnMenos" class="buttonCount" type="button" v-on:click="decrement">-</button>
+        <input class="InputCount" type="number" min="1" name="number" id="Number" v-model="number">
         <button class="buttonCount" type="button" v-on:click="increment">+</button>
       </div>
+
+      <div class="container-radio">
+        <span class="txBold">Escolha a forma de pagamento</span><br />
+        <div class="case-radio">
+          <label for="credito">
+            <input type="radio" id="credito" name="credito" value="Credito"  />
+            Cartão de crédito</label>
+
+          <label for="boleto">
+            <input type="radio" id="boleto" name="boleto" value="Boleto" />
+            Boleto</label>
+
+          <label for="pix">
+            <input type="radio" id="pix" name="pix" value="Pix" />
+            Pix</label>
+          </div>
+      </div>
+
       <div class="container-textArea">
         <span class="txBold txAreaAligneTitle">Observações</span>
         <textarea placeholder="Alguma dúvida ou recado?"></textarea>
       </div>
+
       <div class="container-submit">
         <input type="submit" value="Enviar">
       </div>
@@ -44,7 +63,7 @@
 export default {
   data() {
     return {
-      number: 0,
+      number: 1,
     };
   },
   methods: {
@@ -53,6 +72,9 @@ export default {
     },
     decrement() {
       this.number -= 1;
+      if (this.number < 1) {
+        this.number = 1;
+      }
     },
   },
 };
@@ -77,13 +99,13 @@ header {
   justify-content: center;
   align-items: center;
   text-align: left;
+  overflow: none;
+  background: linear-gradient(55deg, #EA8781 0%, #D9689B 81%);
+  height: 150px !important;
+  width: 100%;
+  border-bottom-left-radius: 30%;
+  border-bottom-right-radius: 50%;
   overflow: hidden;
-  margin-right: 30px;
-  background-image: url('../assets/blob2.svg');
-  background-size: 100%;
-  background-position: center 88%;
-  height: 200px;
-  width: 1292px;
 
 }
 
@@ -92,15 +114,15 @@ header {
   justify-content: center;
   align-items: center;
   text-align: left;
-  width: 450px;
+  height: 100%;
+  width: 100%;
   margin: auto;
 }
 
 header h1 {
-  margin: auto;
+  margin: 10px auto auto auto;
   color: #fff;
-  align-self: flex-start;
-  height: 150px;
+  align-self: center;
   font-weight: 300;
 }
 
@@ -115,7 +137,7 @@ header h1 span {
 }
 
 .imgpkg {
-  width: 132px;
+  width: 80px;
   margin: auto;
   opacity: 0.5;
   transform: rotate(-4deg) translate(5px, -15px);
@@ -127,7 +149,7 @@ form {
   align-items: flex-start;
   flex-direction: column;
   text-align: left;
-  margin: 30px;
+  margin: auto 30px;
   width: 400px;
 }
 
@@ -141,6 +163,7 @@ form {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: 20px;
 }
 
 .buttonCount {
@@ -227,33 +250,57 @@ input[type=number] {
 .container-submit input:hover {
   background: #eb4e94;
   background: linear-gradient(55deg, #eb4e94 0%, #eb4e94 81%);
-  }
+}
+
+.container-radio {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+.container-radio .txBold{
+  margin-top: 10px;
+  margin-bottom: 0;
+  line-height: 0px;
+}
+
+.case-radio{
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin-top: 0;
+}
+.case-radio label{
+  margin-right: 20px;
+}
 
 @media only screen and (max-width: 500px) {
   .body {
     background: #fff !important;
     max-width: 100%;
+    height: 100vh;
+    overflow: hidden;
   }
 
   header {
     justify-content: center;
     align-items: center;
     text-align: center;
-    overflow: visible;
+    overflow: hidden;
     margin: 0;
     background-image: none;
     background: linear-gradient(55deg, #EA8781 0%, #D9689B 81%);
-    height: 130px;
+    height: 140px;
     width: 100%;
 
   }
 
   .container-header {
-    width: 100%;
+    width: 103vw;
   }
 
   header h1 {
-    margin: 20px auto 0 auto;
+    margin: 0px auto 0 auto;
     align-self: center !important;
   }
 
@@ -264,11 +311,12 @@ input[type=number] {
   .imgpkg {
     width: 100px;
     margin: 0 auto;
-    transform: rotate(0) translate(0, -20px);
+    transform: rotate(0) translate(0, -0px)
   }
 
   form {
     width: 350px;
+    margin: 10px 30px;
   }
 
   .container-textArea textarea {
@@ -279,13 +327,18 @@ input[type=number] {
 }
 
 @media only screen and (max-width: 400px) {
+  .body{
+    height: 100vh;
+    overflow: hidden;
+  }
   .container-textArea textarea {
     width: 320px;
     height: 80px;
     padding: 10px 0 10px 10px;
   }
+
   form {
     width: 330px;
-}
+  }
 }
 </style>

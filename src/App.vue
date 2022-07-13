@@ -1,5 +1,5 @@
 <template>
-<FormPedido/>
+  <FormPedido />
 </template>
 
 <script>
@@ -12,6 +12,11 @@ export default {
 </script>
 
 <style>
+* {
+  margin: 0;
+  padding: 0;
+}
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -22,10 +27,29 @@ export default {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-
-} body{
-  background-color: #8d0ed6;
-  padding: 10px;
   margin: 0;
+  padding: 0;
+
+}
+
+body {
+  background-color: #8d0ed6;
+  padding: 0;
+  margin: 10px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media only screen and (max-width: 500px) {
+  body {
+    background-color: #fff;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
 }
 </style>

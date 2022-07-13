@@ -34,7 +34,7 @@
         <span class="txBold">Escolha a forma de pagamento</span><br />
         <div class="case-radio">
           <label for="credito">
-            <input type="radio" id="credito" name="payment" value="Credito"  />
+            <input type="radio" id="credito" name="payment" value="Credito" checked />
             Cartão de crédito</label>
 
           <label for="boleto">

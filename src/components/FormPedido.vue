@@ -34,22 +34,22 @@
         <span class="txBold">Escolha a forma de pagamento</span><br />
         <div class="case-radio">
           <label for="credito">
-            <input type="radio" id="credito" name="credito" value="Credito"  />
+            <input type="radio" id="credito" name="payment" value="Credito"  />
             Cartão de crédito</label>
 
           <label for="boleto">
-            <input type="radio" id="boleto" name="boleto" value="Boleto" />
+            <input type="radio" id="boleto" name="payment" value="Boleto" />
             Boleto</label>
 
           <label for="pix">
-            <input type="radio" id="pix" name="pix" value="Pix" />
+            <input type="radio" id="pix" name="payment" value="Pix" />
             Pix</label>
           </div>
       </div>
 
       <div class="container-textArea">
         <span class="txBold txAreaAligneTitle">Observações</span>
-        <textarea placeholder="Alguma dúvida ou recado?"></textarea>
+        <textarea name="mensagem" placeholder="Alguma dúvida ou recado?"></textarea>
       </div>
 
       <div class="container-submit">

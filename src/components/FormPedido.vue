@@ -10,24 +10,35 @@
       </div>
     </header>
     <form>
-      <span class="txBold">Selecione os seus adesivos</span>
-      <label for="react">
-        <input type="checkbox" id="react" name="react" value="React">
-        React
-      </label>
-      <label for="vue">
-        <input type="checkbox" id="vue" name="vue" value="Vue">
-        Vue
-      </label>
-      <label for="angular">
-        <input type="checkbox" id="angular" name="angular" value="Angular">
-        Angular
-      </label>
-      <br>
+      <div class="container-checkbox">
+          <span class="txBold">Selecione os seus adesivos</span><br />
+        <div class="case-checkbox">
+        <label for="react">
+          <input type="checkbox" id="react" name="react" value="React">
+          React
+        </label>
+        <label for="vue">
+          <input type="checkbox" id="vue" name="vue" value="Vue">
+          Vue
+        </label>
+        <label for="angular">
+          <input type="checkbox" id="angular" name="angular" value="Angular">
+          Angular
+        </label>
+        </div>
+      </div>
+
       <div class="container-buttom">
+        <span class="txBold">Quantos adesivos de cada?</span><br />
+
+        <div class="case-buttom">
         <button id="btnMenos" class="buttonCount" type="button" v-on:click="decrement">-</button>
-        <input class="InputCount" type="number" min="1" name="number" id="Number" v-model="number">
+        <label for="number">
+          <input class="InputCount" type="number" min="1" name="number"
+          id="Number" v-model="number">
+        </label>
         <button class="buttonCount" type="button" v-on:click="increment">+</button>
+        </div>
       </div>
 
       <div class="container-radio">
@@ -44,12 +55,14 @@
           <label for="pix">
             <input type="radio" id="pix" name="payment" value="Pix" />
             Pix</label>
-          </div>
+        </div>
       </div>
 
       <div class="container-textArea">
         <span class="txBold txAreaAligneTitle">Observações</span>
-        <textarea name="mensagem" placeholder="Alguma dúvida ou recado?"></textarea>
+        <label for="mensagem">
+          <textarea name="mensagem" placeholder="Alguma dúvida ou recado?"></textarea>
+        </label>
       </div>
 
       <div class="container-submit">
@@ -153,49 +166,83 @@ form {
   width: 400px;
 }
 
-#react, #vue, #angular{
+.container-checkbox{
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  margin: 10px 0 20px 0;
+  width: 100%;
+}
+.container-checkbox .txBold {
+  margin-bottom: 0;
+  line-height: 10px;
+}
+
+.case-checkbox{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
+}
+
+.container-checkbox label{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+  padding: 0 20px 0 0;
+}
+
+#react,
+#vue,
+#angular {
   margin-top: 5px;
   padding-left: 20px;
 }
 
 input[type=checkbox] {
-         position: relative;
-         cursor: pointer;
-         margin: 10px 20px 10px 0;
-    }
-    input[type=checkbox]:before {
-         content: "";
-         display: block;
-         position: relative;
-         width: 20px;
-         height: 20px;
-         top: 0;
-         left: 0;
-         background-color:#e9e9e9;
+  position: relative;
+  cursor: pointer;
+  margin: 10px 20px 10px 0;
 }
+
+input[type=checkbox]:before {
+  content: "";
+  display: block;
+  position: relative;
+  width: 20px;
+  height: 20px;
+  top: 0;
+  left: 0;
+  background-color: #e9e9e9;
+}
+
 input[type=checkbox]:checked:before {
-         content: "";
-         display: block;
-         position: relative;
-         width: 20px;
-         height: 20px;
-         top: 0;
-         left: 0;
-         background-color:#1E80EF;
+  content: "";
+  display: block;
+  position: relative;
+  width: 20px;
+  height: 20px;
+  top: 0;
+  left: 0;
+  background-color: #1E80EF;
 }
-    input[type=checkbox]:checked:after {
-         content: "";
-         display: block;
-         width: 5px;
-         height: 10px;
-         border: solid white;
-         border-width: 0 2px 2px 0;
-         -webkit-transform: rotate(45deg);
-         -ms-transform: rotate(45deg);
-         transform: rotate(45deg);
-         position: absolute;
-         top: 2px;
-         left: 6px;
+
+input[type=checkbox]:checked:after {
+  content: "";
+  display: block;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+  position: absolute;
+  top: 2px;
+  left: 6px;
 }
 
 .txBold {
@@ -209,6 +256,18 @@ input[type=checkbox]:checked:before {
   justify-content: center;
   align-items: center;
   margin-bottom: 20px;
+  flex-direction: column;
+}
+.container-buttom .txBold {
+  margin-bottom: 0;
+  }
+
+.case-buttom{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
 }
 
 .buttonCount {
@@ -259,6 +318,9 @@ input[type=number] {
   margin: 20px 0;
   width: 390px !important;
 }
+.container-textArea label{
+  width: 100%;
+}
 
 .txAreaAligneTitle {
   text-align: left;
@@ -303,19 +365,21 @@ input[type=number] {
   justify-content: flex-start;
   flex-direction: column;
 }
-.container-radio .txBold{
+
+.container-radio .txBold {
   margin-top: 10px;
   margin-bottom: 0;
   line-height: 0px;
 }
 
-.case-radio{
+.case-radio {
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
   margin-top: 0;
 }
-.case-radio label{
+
+.case-radio label {
   margin-right: 20px;
 }
 
@@ -372,10 +436,11 @@ input[type=number] {
 }
 
 @media only screen and (max-width: 400px) {
-  .body{
+  .body {
     height: 100vh;
     overflow: hidden;
   }
+
   .container-textArea textarea {
     width: 320px;
     height: 80px;
